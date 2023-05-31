@@ -22,6 +22,15 @@ tree *node(int x){
     return n;
 }
 
+// симметричный обход (Л-К-П)
+void inorder(tree *tr){ 
+    if (tr){
+        inorder(tr->left);         // левое
+        cout << tr->inf << " ";    // корень
+        inorder(tr->right);        // правое
+    }
+}
+
 // функция поиска элемента
 tree *find(tree *tr, int x){   
     if (!tr || x == tr->inf)           // нашли или дошли до конца ветки
@@ -84,6 +93,7 @@ int main(){
         insert(tr, x);            // вставка этого элемента на свое место в дереве
     }
     
+    inorder(tr);
     cout << endl;
     tree *tr2 = find(tr, value);
     cout << descendants(tr2);

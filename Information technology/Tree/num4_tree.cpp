@@ -18,6 +18,15 @@ tree *node(int x){
     return n;
 } 
 
+// прямой обход (К-Л-П)
+void preorder(tree *tr){ 
+   if (tr){
+      cout << tr->inf << " "; // корень
+      preorder(tr->left);     // левое
+      preorder(tr->right);    // правое
+   }
+}
+
 // создание и заполнение исходного дерева
 void create(tree *&tr, int n){
     int x;
@@ -50,6 +59,7 @@ int main(){
     int n; cout << "n = "; cin >> n;                        // количество элементов
     int level; cout << "required level: "; cin >> level;    // требуемый уровень
     create(tr, n);                                          // заполнение дерева
+    preorder(tr);
     cout << endl;
     levels(tr, level, 0);                                   // вывод узлов заданного уровня
 }

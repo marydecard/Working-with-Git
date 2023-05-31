@@ -22,6 +22,15 @@ tree *node(int x){
     return n;
 }
 
+// симметричный обход (Л-К-П)
+void inorder(tree *tr){ 
+    if (tr){
+        inorder(tr->left);         // левое
+        cout << tr->inf << " ";    // корень
+        inorder(tr->right);        // правое
+    }
+}
+
 // вставка элемента
 void insert(tree *&tr, int x){ 
     tree *n = node(x);
@@ -71,6 +80,7 @@ int main(){
         cin >> x;                 // ввод текущего элемента
         insert(tr, x);            // вставка этого элемента на свое место в дереве
     }
+    inorder(tr);
     cout << endl;
     cout << descendants(tr);
 }

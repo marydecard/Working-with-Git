@@ -18,6 +18,15 @@ tree *node(int x){
     return n;
 } 
 
+// прямой обход (К-Л-П)
+void preorder(tree *tr){ 
+   if (tr){
+      cout << tr->inf << " "; // корень
+      preorder(tr->left);     // левое
+      preorder(tr->right);    // правое
+   }
+}
+
 // создание и заполнение исходного дерева
 void create(tree *&tr, int n){
     int x;
@@ -45,6 +54,7 @@ int main(){
     tree *tr = NULL;
     int n, x; cout << "n = "; cin >> n;      // количество элементов
     create(tr, n);                           // заполнение дерева
+    preorder(tr);
     cout << endl;
     cout << leaves(tr);         // вывод суммы листьев
 }

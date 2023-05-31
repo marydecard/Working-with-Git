@@ -27,18 +27,13 @@ void graph(){
 } 
 
 
-void dfs(vector<vector<int>> Gr, int current, vector<int> used){
-
+void dfs(vector<vector<int>> Gr, int current, vector<int>& used){
     used[current] = 1;
     path.push_back(current);
 
     for (int i = 0; i < Gr[current].size(); i++)
-
-        if (used[Gr[current][i]] == 0){
-            for (int i = 0; i < used.size(); i++)
-                used[i] == 0;
+        if (used[Gr[current][i]] == 0)
             dfs(Gr, Gr[current][i], used);
-        }
 }
 
 int main(){
